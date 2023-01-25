@@ -41,3 +41,19 @@ kubectl apply -f yamlz/all-service.yaml
 In the browser on the dashboard services we have to see something similar to the below image.
 
 ![interpreter](/img/dashboard.png)
+
+The webapp is reachable [here](http://10.97.92.59:5000/) with these context routes:
+- [/version](http://10.97.92.59:5000/version)
+- [/alert](http://10.97.92.59:5000/alert)
+- [/counter]http://10.97.92.59:5000/counter)
+- [/healthz](http://10.97.92.59:5000/healthz)
+
+The grafana can be reached [here](http://10.109.85.148:3000/).
+The prometheus can be reached [here](http://10.96.117.119:9090/).
+The redis can be reached [here](http://100.51.62:6379).
+
+What I could not do:
+- pod monitoring part, no experience.
+- /version context route, no idea where that git commit should come from.
+- grafana alert, this is due to the incomplete prometheus setup I suppose.
+
