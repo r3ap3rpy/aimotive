@@ -1,0 +1,275 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":"2023-01-25T15:06:44Z","name":"flask-app-deployment","namespace":"default","resourceVersion":"3673","uid":"59a3c3bf-b9a6-4a65-90ff-a57762aa9cd3"},"spec":{"allocateLoadBalancerNodePorts":true,"clusterIP":"10.97.92.59","clusterIPs":["10.97.92.59"],"externalTrafficPolicy":"Cluster","internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"nodePort":31156,"port":5000,"protocol":"TCP","targetPort":5000}],"selector":{"app":"test-app"},"sessionAffinity":"None","type":"LoadBalancer"},"status":{"loadBalancer":{"ingress":[{"ip":"10.97.92.59"}]}}}
+    creationTimestamp: "2023-01-25T15:31:15Z"
+    name: flask-app-deployment
+    namespace: default
+    resourceVersion: "6692"
+    uid: 4600646d-d515-4d25-b4c6-300659082c9f
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.97.92.59
+    clusterIPs:
+    - 10.97.92.59
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31156
+      port: 5000
+      protocol: TCP
+      targetPort: 5000
+    selector:
+      app: test-app
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"grafana","namespace":"default"},"spec":{"ports":[{"port":3000,"protocol":"TCP","targetPort":"http-grafana"}],"selector":{"app":"grafana"},"sessionAffinity":"None","type":"LoadBalancer"}}
+    creationTimestamp: "2023-01-25T15:34:51Z"
+    name: grafana
+    namespace: default
+    resourceVersion: "6693"
+    uid: 152edecf-efef-44d9-a8b9-0aa4908798c5
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.109.85.148
+    clusterIPs:
+    - 10.109.85.148
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31685
+      port: 3000
+      protocol: TCP
+      targetPort: http-grafana
+    selector:
+      app: grafana
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":"2023-01-25T14:05:15Z","labels":{"component":"apiserver","provider":"kubernetes"},"name":"kubernetes","namespace":"default","resourceVersion":"193","uid":"96c3a85a-575c-45d2-933c-66f3f74bdb07"},"spec":{"clusterIP":"10.96.0.1","clusterIPs":["10.96.0.1"],"internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"name":"https","port":443,"protocol":"TCP","targetPort":8443}],"sessionAffinity":"None","type":"ClusterIP"},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2023-01-25T14:05:15Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "4916"
+    uid: 96c3a85a-575c-45d2-933c-66f3f74bdb07
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2023-01-25T16:00:07Z"
+    labels:
+      app: prometheus-server
+    name: prometheus-deployment
+    namespace: default
+    resourceVersion: "6694"
+    uid: 1caa8970-dfd6-4f2d-b625-0e607bf60c5d
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.96.117.119
+    clusterIPs:
+    - 10.96.117.119
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30607
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      app: prometheus-server
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":"2023-01-25T15:20:25Z","name":"redis-master","namespace":"default","resourceVersion":"4298","uid":"cb6ab434-b028-48cd-b5fc-c372b756ad12"},"spec":{"allocateLoadBalancerNodePorts":true,"clusterIP":"10.100.51.62","clusterIPs":["10.100.51.62"],"externalTrafficPolicy":"Cluster","internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"nodePort":31287,"port":6379,"protocol":"TCP","targetPort":6379}],"selector":{"app":"redis","role":"master","tier":"backend"},"sessionAffinity":"None","type":"LoadBalancer"},"status":{"loadBalancer":{"ingress":[{"ip":"10.100.51.62"}]}}}
+    creationTimestamp: "2023-01-25T15:31:15Z"
+    name: redis-master
+    namespace: default
+    resourceVersion: "6695"
+    uid: a105d88c-3f65-4e04-b19f-a078b40ee9f5
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.100.51.62
+    clusterIPs:
+    - 10.100.51.62
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31287
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      app: redis
+      role: master
+      tier: backend
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"prometheus.io/port":"9153","prometheus.io/scrape":"true"},"creationTimestamp":"2023-01-25T14:05:17Z","labels":{"k8s-app":"kube-dns","kubernetes.io/cluster-service":"true","kubernetes.io/name":"CoreDNS"},"name":"kube-dns","namespace":"kube-system","resourceVersion":"233","uid":"7ba12894-3f21-42aa-8040-0bd7a53d461f"},"spec":{"clusterIP":"10.96.0.10","clusterIPs":["10.96.0.10"],"internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"name":"dns","port":53,"protocol":"UDP","targetPort":53},{"name":"dns-tcp","port":53,"protocol":"TCP","targetPort":53},{"name":"metrics","port":9153,"protocol":"TCP","targetPort":9153}],"selector":{"k8s-app":"kube-dns"},"sessionAffinity":"None","type":"ClusterIP"},"status":{"loadBalancer":{}}}
+      prometheus.io/port: "9153"
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2023-01-25T14:05:17Z"
+    labels:
+      k8s-app: kube-dns
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: CoreDNS
+    name: kube-dns
+    namespace: kube-system
+    resourceVersion: "4922"
+    uid: 7ba12894-3f21-42aa-8040-0bd7a53d461f
+  spec:
+    clusterIP: 10.96.0.10
+    clusterIPs:
+    - 10.96.0.10
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: dns
+      port: 53
+      protocol: UDP
+      targetPort: 53
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+      targetPort: 53
+    - name: metrics
+      port: 9153
+      protocol: TCP
+      targetPort: 9153
+    selector:
+      k8s-app: kube-dns
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":"2023-01-25T14:17:11Z","labels":{"addonmanager.kubernetes.io/mode":"Reconcile","k8s-app":"dashboard-metrics-scraper","kubernetes.io/minikube-addons":"dashboard"},"name":"dashboard-metrics-scraper","namespace":"kubernetes-dashboard","resourceVersion":"1028","uid":"ec46c5e7-8e92-4e84-9e5d-bc2ed940a72d"},"spec":{"clusterIP":"10.101.120.76","clusterIPs":["10.101.120.76"],"internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"port":8000,"protocol":"TCP","targetPort":8000}],"selector":{"k8s-app":"dashboard-metrics-scraper"},"sessionAffinity":"None","type":"ClusterIP"},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2023-01-25T14:17:11Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: dashboard-metrics-scraper
+      kubernetes.io/minikube-addons: dashboard
+    name: dashboard-metrics-scraper
+    namespace: kubernetes-dashboard
+    resourceVersion: "4923"
+    uid: ec46c5e7-8e92-4e84-9e5d-bc2ed940a72d
+  spec:
+    clusterIP: 10.101.120.76
+    clusterIPs:
+    - 10.101.120.76
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+    selector:
+      k8s-app: dashboard-metrics-scraper
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":"2023-01-25T14:17:11Z","labels":{"addonmanager.kubernetes.io/mode":"Reconcile","k8s-app":"kubernetes-dashboard","kubernetes.io/minikube-addons":"dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard","resourceVersion":"1024","uid":"4d348b40-733e-469f-8e3a-970083c92337"},"spec":{"clusterIP":"10.105.50.168","clusterIPs":["10.105.50.168"],"internalTrafficPolicy":"Cluster","ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"port":80,"protocol":"TCP","targetPort":9090}],"selector":{"k8s-app":"kubernetes-dashboard"},"sessionAffinity":"None","type":"ClusterIP"},"status":{"loadBalancer":{}}}
+    creationTimestamp: "2023-01-25T14:17:11Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: kubernetes-dashboard
+      kubernetes.io/minikube-addons: dashboard
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    resourceVersion: "4924"
+    uid: 4d348b40-733e-469f-8e3a-970083c92337
+  spec:
+    clusterIP: 10.105.50.168
+    clusterIPs:
+    - 10.105.50.168
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      k8s-app: kubernetes-dashboard
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""

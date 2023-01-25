@@ -1,8 +1,8 @@
 from flask import Flask
-from flask_redis import FlaskRedis
-REDIS_URL = "redis://localhost:6379/0"
+from redis import Redis
 app = Flask(__name__)
-redis_client = FlaskRedis(app)
+
+redis = Redis(host='10.100.51.62', port=6379)
 
 @app.route("/healthz")
 def healthz():
@@ -10,21 +10,20 @@ def healthz():
 
 @app.route("/alert")
 def alert():
-	#increase counter in redis
-	if not redis_client.get('counter'):
-		redis_client.set('counter',0)
-	redis_client.incr('counter')
+	if not redis.get('counter'):
+		redis.set('counter',0)
+	redis.incr('counter')
 	return "counter increase"
 
 @app.route("/counter")
 def counter():
-	if not redis_client.get('counter'):
-		redis_client.set('counter',0)
-	return redis_client.get('counter')
+	if not redis.get('counter'):
+		redis.set('counter',0)
+	return redis.get('counter')
 
 @app.route("/version")
 def version():
 	return "Short git commit!"
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0',port=5000, debug = True)
+	app.run(host='0.0.0.0',port = 5000, debug = True)
