@@ -45,7 +45,7 @@ In the browser on the dashboard services we have to see something similar to the
 The webapp is reachable [here](http://10.97.92.59:5000/) with these context routes:
 - [/version](http://10.97.92.59:5000/version)
 - [/alert](http://10.97.92.59:5000/alert)
-- [/counter]http://10.97.92.59:5000/counter)
+- [/counter](http://10.97.92.59:5000/counter)
 - [/healthz](http://10.97.92.59:5000/healthz)
 
 The grafana can be reached [here](http://10.109.85.148:3000/).
